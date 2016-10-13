@@ -8,8 +8,11 @@ var funThoughts = awesomeThoughts.replace("awesome", "fun");
 
 $("#main").append(funThoughts);*/
 
-var formattedName = HTMLheaderName.replace("%data%", "Luis Pérez");
-var formattedRole = HTMLheaderRole.replace("%data%", "Web Developer");
+var name = "Luis Pérez";
+var role = "Web Developer";
 
-$("#header").append(formattedName);
-$("#header").append(formattedRole);
+var formattedName = HTMLheaderName.replace("%data%", name);
+var formattedRole = HTMLheaderRole.replace("%data%", role);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
