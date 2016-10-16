@@ -74,7 +74,7 @@ var bio = {
 		"email" : "lperez.1092@gmail.com",
 		"github" : "luisperez09",
 		"twitter" : "@medicenhueso",
-		"location" : "Buenos Aires, Argentina"
+		"location" : "Ciudad Ojeda, Venezuela"
 	},
 	"skills" : [
 		"awesomeness", "delivering things", "cryogenic sleep", "saving the universe"
@@ -119,6 +119,21 @@ var formattedRole = HTMLheaderRole.replace("%data%", role);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+$("#topContacts").append(formattedMobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#topContacts").append(formattedEmail);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#topContacts").append(formattedGithub);
+
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+$("#topContacts").append(formattedTwitter);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#topContacts").append(formattedLocation);
 
 var formattedImage = HTMLbioPic.replace("%data%", bio.bioPic);
 $("#header").append(formattedImage);
