@@ -99,14 +99,14 @@ var education = {
 		{
 			"title" : "JavaScript Basics",
 			"school" : "udacity",
-			"date" : "date_1",
-			"url" : "online_course_url_1"
+			"date" : "2016",
+			"url" : "https://www.udacity.com/course/javascript-basics--ud804"
 		},
 		{
 			"title" : "Intro to CS",
 			"school" : "Udacity",
-			"date" : "date_2",
-			"url" : "online_course_url_2"
+			"date" : "2016",
+			"url" : "https://www.udacity.com/course/intro-to-computer-science--cs101"
 		}
 	]
 };
@@ -194,5 +194,25 @@ projects.display = function () {
 }
 
 projects.display();
+
+education.displayOnlineCourses = function () {
+	if (education.onlineCourses.length > 0) {
+		$("#education").append(HTMLonlineClasses);
+		for (course in education.onlineCourses) {
+			$("#education").append(HTMLschoolStart);
+			var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+			var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+			$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+			var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].date);
+			$(".education-entry:last").append(formattedOnlineDates);
+			var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+			$(".education-entry:last").append(formattedOnlineURL);
+			
+		}
+	}
+	
+}
+
+education.displayOnlineCourses();
 
 $("#mapDiv").append(googleMap);
