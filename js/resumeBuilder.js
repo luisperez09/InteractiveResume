@@ -3,7 +3,7 @@ var work = {
 		{
 			"employer" : "employer_1",
 			"title" : "title_1",
-			"location" : "location_1",
+			"location" : "Ciudad Ojeda, Venezuela",
 			"dates" : "2011 - 2013",
 			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"images" : [
@@ -15,7 +15,7 @@ var work = {
 		{
 			"employer" : "employer_2",
 			"title" : "title_2",
-			"location" : "location_2",
+			"location" : "Bogotá, Colombia",
 			"dates" : "2013 - 2015",
 			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"images" : [
@@ -27,7 +27,7 @@ var work = {
 		{
 			"employer" : "employer_3",
 			"title" : "title_3",
-			"location" : "location_3",
+			"location" : "Maracaibo, Venezuela",
 			"dates" : "2015 - present",
 			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"images" : [
@@ -74,7 +74,7 @@ var bio = {
 		"email" : "lperez.1092@gmail.com",
 		"github" : "luisperez09",
 		"twitter" : "@medicenhueso",
-		"location" : "Narnia"
+		"location" : "Buenos Aires, Argentina"
 	},
 	"skills" : [
 		"awesomeness", "delivering things", "cryogenic sleep", "saving the universe"
@@ -84,13 +84,13 @@ var education = {
 	"schools" : [
 		{
 			"name" : "Uniojeda",
-			"location" : "Narnia",
+			"location" : "Ciudad de México, México",
 			"degreeDate" : "2013",
 			"majors" : ["CS"]
 		},
 		{
 			"name" : "school_2",
-			"location" : "city_2",
+			"location" : "Caracas, Venezuela",
 			"degreeDate" : "3521",
 			"majors" : ["french"]
 		}
@@ -119,6 +119,9 @@ var formattedRole = HTMLheaderRole.replace("%data%", role);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+
+var formattedImage = HTMLbioPic.replace("%data%", bio.bioPic);
+$("#header").append(formattedImage);
 
 if(bio.skills.length > 0) {
   	$('#header').append(HTMLskillsStart);
@@ -176,3 +179,5 @@ projects.display = function () {
 }
 
 projects.display();
+
+$("#mapDiv").append(googleMap);
