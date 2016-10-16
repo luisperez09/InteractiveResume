@@ -3,7 +3,7 @@ var work = {
 		{
 			"employer" : "employer_1",
 			"title" : "title_1",
-			"location" : "Ciudad Ojeda, Venezuela",
+			"location" : "Ciudad de México, México",
 			"dates" : "2011 - 2013",
 			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"images" : [
@@ -84,16 +84,11 @@ var education = {
 	"schools" : [
 		{
 			"name" : "Uniojeda",
-			"location" : "Ciudad de México, México",
+			"location" : "Ciudad Ojeda, Venezuela",
+			"degree" : "Engineer",
 			"degreeDate" : "2013",
-			"majors" : ["CS"]
+			"major" : "Computación"
 		},
-		{
-			"name" : "school_2",
-			"location" : "Caracas, Venezuela",
-			"degreeDate" : "3521",
-			"majors" : ["french"]
-		}
 	],
 	"onlineCourses" : [
 		{
@@ -197,6 +192,24 @@ projects.display = function () {
 }
 
 projects.display();
+
+education.displaySchools = function () {
+	if (education.schools.length > 0) {
+		for (school in education.schools) {
+			$("#education").append(HTMLschoolStart);
+			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+			var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+			$(".education-entry:last").append(formattedSchoolName + formattedDegree);
+			var formattedDegreeDate = HTMLschoolDates.replace("%data%", education.schools[school].degreeDate);
+			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+			$(".education-entry:last").append(formattedDegreeDate + formattedSchoolLocation);
+			var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+			$(".education-entry").append(formattedMajor);
+		}
+	}
+}
+
+education.displaySchools();
 
 education.displayOnlineCourses = function () {
 	if (education.onlineCourses.length > 0) {
