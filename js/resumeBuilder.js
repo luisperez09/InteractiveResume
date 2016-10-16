@@ -4,8 +4,8 @@ var work = {
 			"employer" : "employer_1",
 			"title" : "title_1",
 			"location" : "location_1",
-			"dates" : "dates_1",
-			"description" : "description_1",
+			"dates" : "2011 - 2013",
+			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"images" : [
 				"path/to/img_1",
 				"path/to/img_2",
@@ -16,8 +16,8 @@ var work = {
 			"employer" : "employer_2",
 			"title" : "title_2",
 			"location" : "location_2",
-			"dates" : "dates_2",
-			"description" : "description_2",
+			"dates" : "2013 - 2015",
+			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"images" : [
 				"path/to/img_4",
 				"path/to/img_5",
@@ -28,8 +28,8 @@ var work = {
 			"employer" : "employer_3",
 			"title" : "title_3",
 			"location" : "location_3",
-			"dates" : "dates_3",
-			"description" : "description_3",
+			"dates" : "2015 - present",
+			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"images" : [
 				"path/to/img_7",
 				"path/to/img_8",
@@ -119,3 +119,26 @@ var formattedRole = HTMLheaderRole.replace("%data%", role);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+
+if(bio.skills.length > 0) {
+  $('#header').append(HTMLskillsStart);
+  for (var i = 0; i < bio.skills.length; i++) {
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]); 
+    $("#skills").append(formattedSkill);
+  };
+}
+
+for(job in work.jobs) {
+  $("#workExperience").append(HTMLworkStart);
+
+  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+  $(".work-entry:last").append(formattedEmployerTitle);
+
+  var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+  $(".work-entry:last").append(formattedDates);
+
+  var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+  $(".work-entry:last").append(formattedDescription);
+};
